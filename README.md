@@ -1,2 +1,2 @@
-# Super Trunfo
-Projeto simples de Super Trunfo desenvolvido durante a semana de Imersãodev da Alura.
+# :video_game: Super Trunfo
+Projeto simples inspirado no jogo Super Trunfo com validação desenvolvido durante a semana de Imersãodev da Alura.
