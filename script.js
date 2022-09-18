@@ -113,7 +113,7 @@ function sortearCarta() {
     document.getElementById("btnJogar").disabled = false;
 
     let mensagemEscolha = document.getElementById("mensagem-escolha");
-    mensagemEscolha.innerHTML = "Escolha seu atributo!";
+    mensagemEscolha.innerHTML = "Escolha um atributo";
     exibirCartaJogador();
 }
 
@@ -134,10 +134,6 @@ function jogar() {
     let valorCartaJogador = cartaJogador.atributos[atributoSelecionado];
     let valorCartaMaquina = cartaMaquina.atributos[atributoSelecionado];
 
-    // if (atributoSelecionado != undefined) {
-    //     document.getElementById("btnJogar").disabled = true;
-    // }
-
     if (atributoSelecionado == null || atributoSelecionado == undefined) {
         mensagemResultado =
             "<p class='resultado-final'>Escolha um atributo para utilizar</p>";
@@ -155,7 +151,7 @@ function jogar() {
         document.getElementById("btnJogar").disabled = true;
         exibirCartaMaquina();
     }
-    
+
     divResultado.innerHTML = mensagemResultado;
 }
 
