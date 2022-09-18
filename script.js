@@ -113,7 +113,7 @@ function sortearCarta() {
     document.getElementById("btnJogar").disabled = false;
 
     let mensagemEscolha = document.getElementById("mensagem-escolha");
-    mensagemEscolha.innerHTML = "Escolha seu atributo!"; 
+    mensagemEscolha.innerHTML = "Escolha seu atributo!";
     exibirCartaJogador();
 }
 
@@ -134,24 +134,29 @@ function jogar() {
     let valorCartaJogador = cartaJogador.atributos[atributoSelecionado];
     let valorCartaMaquina = cartaMaquina.atributos[atributoSelecionado];
 
-    if (atributoSelecionado != undefined) {
-        document.getElementById("btnJogar").disabled = true;
-    }
+    // if (atributoSelecionado != undefined) {
+    //     document.getElementById("btnJogar").disabled = true;
+    // }
 
-    if (atributoSelecionado == undefined) {
+    if (atributoSelecionado == null || atributoSelecionado == undefined) {
         mensagemResultado =
-            "<p class='resultado-final'>Escolha o atributo para utilizar</p>";
+            "<p class='resultado-final'>Escolha um atributo para utilizar</p>";
     } else if (valorCartaJogador > valorCartaMaquina) {
         mensagemResultado =
             "<p class='resultado-final'>Você derrotou o inimigo</p>";
+        document.getElementById("btnJogar").disabled = true;
+        exibirCartaMaquina();
     } else if (valorCartaMaquina > valorCartaJogador) {
         mensagemResultado = "<p class='resultado-final'>Você foi derrotado</p>";
+        document.getElementById("btnJogar").disabled = true;
+        exibirCartaMaquina();
     } else {
         mensagemResultado = "<p class='resultado-final'>Empate</p>";
+        document.getElementById("btnJogar").disabled = true;
+        exibirCartaMaquina();
     }
+    
     divResultado.innerHTML = mensagemResultado;
-
-    exibirCartaMaquina();
 }
 
 function exibirCartaJogador() {
@@ -165,13 +170,7 @@ function exibirCartaJogador() {
     let opcoesTexto = "";
     for (let atributo in cartaJogador.atributos) {
         opcoesTexto +=
-            "<input type='radio' name='atributo' value='" +
-            atributo +
-            "'>" +
-            atributo +
-            " " +
-            cartaJogador.atributos[atributo] +
-            "<br>";
+            "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo + " " + cartaJogador.atributos[atributo] + "<br>";
     }
     let nome = `<p class="carta-subtitle">${cartaJogador.nome}</p>`;
 
