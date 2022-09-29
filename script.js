@@ -117,6 +117,14 @@ function sortearCarta() {
     exibirCartaJogador();
 }
 
+function jogarNovamente() {
+    let atributoSelecionado = obterAtributo();
+
+    if (atributoSelecionado != undefined && document.getElementById("btnJogar").disabled) {
+        location.reload();
+    }
+}
+
 function obterAtributo() {
     let atributosBtnRadio = document.getElementsByName("atributo");
 
@@ -136,7 +144,7 @@ function jogar() {
 
     if (atributoSelecionado == null || atributoSelecionado == undefined) {
         mensagemResultado =
-            "<p class='resultado-final'>Escolha um atributo para utilizar</p>";
+            "<p class='resultado-final'>Você ainda não escolheu um atributo</p>";
     } else if (valorCartaJogador > valorCartaMaquina) {
         mensagemResultado =
             "<p class='resultado-final'>Você derrotou o inimigo</p>";
@@ -196,3 +204,4 @@ function exibirCartaMaquina() {
 
     divCartaMaquina.innerHTML = moldura + nome + tagHTML + opcoesTexto + "</div>";
 }
+
